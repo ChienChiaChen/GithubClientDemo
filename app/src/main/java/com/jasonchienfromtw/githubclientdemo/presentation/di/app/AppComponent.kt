@@ -2,6 +2,7 @@ package com.jasonchienfromtw.githubclientdemo.presentation.di.app
 
 import com.jasonchienfromtw.githubclientdemo.App
 import com.jasonchienfromtw.githubclientdemo.presentation.di.main.MainActivityInjector
+import com.jasonchienfromtw.githubclientdemo.presentation.di.viewmodel.ViewModelModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -11,7 +12,8 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         AppModule::class,
-        MainActivityInjector::class
+        MainActivityInjector::class,
+        ViewModelModule::class
     ]
 )
 @Singleton
