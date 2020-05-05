@@ -12,7 +12,7 @@ import com.jasonchienfromtw.githubclientdemo.presentation.ui.navigator.Navigator
 import kotlinx.android.synthetic.main.item_user.view.*
 import javax.inject.Inject
 
-class UsersAdapter @Inject constructor(val navigator: Navigator) :
+class UsersAdapter @Inject constructor(private val navigator: Navigator) :
     PagedListAdapter<User, UsersAdapter.UserViewHolder>(UserDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -31,7 +31,7 @@ class UsersAdapter @Inject constructor(val navigator: Navigator) :
             navigator: Navigator
         ) {
             itemView.userName.text = user.name
-            itemView.setOnClickListener { itemView ->
+            itemView.setOnClickListener {
                 navigator.toUsersFragment()
             }
         }
