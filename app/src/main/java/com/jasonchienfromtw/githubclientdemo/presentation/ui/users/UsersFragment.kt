@@ -20,6 +20,6 @@ class UsersFragment : Fragment() {
         const val TAG = "UsersFragment"
 
         @JvmStatic
-        fun newInstance() = UserDetailFragment()
+        fun newInstance() = UsersFragment()
     }
 }
