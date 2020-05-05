@@ -30,5 +30,9 @@ task clean(type: Delete) {
 ext {
     dagger = '2.22.1'
     lifecycle = '2.0.0'
+    recyclerView = '1.0.0'
+    paging = '2.1.0'
+    material = '1.0.0'
+    gson = '2.8.5'
 
 }
