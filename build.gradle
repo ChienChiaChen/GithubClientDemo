@@ -29,4 +29,6 @@ task clean(type: Delete) {
 
 ext {
     dagger = '2.22.1'
+    lifecycle = '2.0.0'
+
 }
