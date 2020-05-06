@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
@@ -19,7 +19,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
 }
 
@@ -35,5 +35,7 @@ ext {
     material = '1.0.0'
     gson = '2.8.5'
     rxJava = '2.2.4'
-    rxAndroid= '2.1.1'
+    rxAndroid = '2.1.1'
+    room = '2.1.0'
+
 }
