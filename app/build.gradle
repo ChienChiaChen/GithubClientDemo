@@ -62,4 +62,16 @@ dependencies {
     kapt "androidx.room:room-compiler:$room"
     androidTestImplementation "androidx.room:room-testing:$room"
 
+    // OkHttp
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofit") {
+        // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+
 }
