@@ -54,6 +54,7 @@ dependencies {
 
     //Paging Library
     implementation "androidx.paging:paging-runtime:$paging"
+    implementation "androidx.paging:paging-rxjava2:$paging"
 
     // Room
     implementation "androidx.room:room-runtime:$room"
