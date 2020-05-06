@@ -13,7 +13,7 @@ class AppModule(private val app: App) {
 
     @Provides
     @ApplicationContext
-    internal fun provideContext() : Context = app
+    internal fun provideContext(): Context = app
 
     @Provides
     internal fun provideResources(): Resources = app.resources
