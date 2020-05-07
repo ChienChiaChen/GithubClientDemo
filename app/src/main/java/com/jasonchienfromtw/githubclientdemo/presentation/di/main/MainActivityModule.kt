@@ -1,6 +1,7 @@
 package com.jasonchienfromtw.githubclientdemo.presentation.di.main
 
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 
 import com.jasonchienfromtw.githubclientdemo.presentation.di.scope.PerActivity
@@ -16,6 +17,9 @@ class MainActivityModule(private val activity: MainActivity) {
 
     @Provides
     internal fun provideSupportActivity(): AppCompatActivity = activity
+
+//    @Provides
+//    internal fun provideContext(): Context = activity
 
     @Module
     interface Binding {

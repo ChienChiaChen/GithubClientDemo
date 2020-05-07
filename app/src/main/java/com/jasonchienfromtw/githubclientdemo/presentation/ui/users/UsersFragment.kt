@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jasonchienfromtw.githubclientdemo.R
@@ -44,6 +45,9 @@ class UsersFragment : DaggerFragment() {
     }
 
     private fun observeUsers() {
+        usersViewModel.users.observe(this, Observer { users ->
+            usersAdapter.submitList(users)
+        })
     }
 
     companion object {
