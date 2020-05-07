@@ -13,7 +13,6 @@ import com.jasonchienfromtw.githubclientdemo.data.source.local.room.UsersDatabas
 import com.jasonchienfromtw.githubclientdemo.data.source.remote.UsersRemoteSource
 import com.jasonchienfromtw.githubclientdemo.domain.models.User
 import com.jasonchienfromtw.githubclientdemo.domain.repository.UsersRepository
-import com.jasonchienfromtw.githubclientdemo.presentation.di.qualifier.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -53,6 +52,7 @@ class LocalDataModule {
     @Provides
     internal fun provideUsersRepository(
         usersLocalSource: UsersLocalSource,
+        usersRemoteSource: UsersRemoteSource,
         pagedListBuilder: RxPagedListBuilder<Int, User>
-    ): UsersRepository = UsersRepositoryImpl(usersLocalSource, pagedListBuilder)
+    ): UsersRepository = UsersRepositoryImpl(usersLocalSource, usersRemoteSource, pagedListBuilder)
 }
