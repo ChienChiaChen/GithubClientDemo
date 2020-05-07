@@ -1,10 +1,13 @@
 package com.jasonchienfromtw.githubclientdemo.presentation.ui.navigator
 
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.jasonchienfromtw.githubclientdemo.R
+import com.jasonchienfromtw.githubclientdemo.domain.models.User
 import com.jasonchienfromtw.githubclientdemo.presentation.extensions.fragmentTransaction
+import com.jasonchienfromtw.githubclientdemo.presentation.extensions.withArguments
 import com.jasonchienfromtw.githubclientdemo.presentation.ui.userdetail.UserDetailFragment
 import com.jasonchienfromtw.githubclientdemo.presentation.ui.users.UsersFragment
 import javax.inject.Inject
@@ -23,12 +26,19 @@ class NavigatorImpl @Inject constructor(private val activity: AppCompatActivity)
         }
     }
 
-    override fun toDetailFragment() {
+    override fun toDetailFragment(user: User, pos: Int, userAvatar: ImageView) {
         activity.fragmentTransaction {
             setReorderingAllowed(true)
             setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             getFragmentOnFragmentContainer()?.let { hide(it) }
-            replace(R.id.fragmentContainer, UserDetailFragment.newInstance(), UserDetailFragment.TAG)
+            addSharedElement(userAvatar, userAvatar.transitionName)
+            replace(
+                R.id.fragmentContainer, UserDetailFragment.newInstance().withArguments(
+                    "user" to user,
+                    "position" to pos
+                )
+                , UserDetailFragment.TAG
+            )
             addToBackStack(UserDetailFragment.TAG)
         }
     }
